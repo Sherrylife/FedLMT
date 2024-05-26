@@ -1,0 +1,42 @@
+---
+# control
+exp_name: 1_100_0.1_non-iid1-2_fix_a1-b1-c1-d1-e1_bn_1_0
+control:
+  fed: '1'
+  num_users: '20'
+  active_user_rate: '1.0'
+  data_split_mode: 'iid'
+  model_split_mode: 'fix'
+  model_mode: 'a1'
+  norm: 'bn'
+  scale: '1'
+  mask: '0'
+# data
+subset: label
+batch_size:
+  train: 64
+  test: 100
+shuffle:
+  train: True
+  test: False
+# optimizer
+momentum: 0.9
+weight_decay: 5.0e-4
+step_size: 1
+milestones:
+  - 500
+  - 800
+patience: 10
+threshold: 1.0e-3
+factor: 0.1
+min_lr: 1.0e-5
+# experiment
+evaluate_gap: 1
+num_experiments: 1
+num_epochs: 200
+log_interval: 0.25
+device: cuda
+world_size: 1
+resume_mode: 0
+# other
+save_format: pdf
